@@ -3,6 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import {CssBaseline} from '@material-ui/core';
 import Header from './components/Header';
 import ServicesToSupply from './components/ServicesToSupply';
+import Form from './components/contactus';
 
 
 const useStyles = makeStyles((theme)=>({
@@ -10,7 +11,8 @@ const useStyles = makeStyles((theme)=>({
     minHeight: '100vh',
     backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/bg.jpg'} )`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
+    backgroundSize: 'contain',
+    backgroundPosition:'top'
   }
 }));
 export default function App(){
@@ -20,6 +22,7 @@ export default function App(){
     <CssBaseline />
     <Header />
     <ServicesToSupply />
+    <Form />
     </div>
   )
 }

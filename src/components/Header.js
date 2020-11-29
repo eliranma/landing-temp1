@@ -3,13 +3,14 @@ import {makeStyles} from '@material-ui/core/styles';
 import {AppBar, Collapse, IconButton, Toolbar} from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import {Link as Scroll} from 'react-scroll';
 
 const useStyles = makeStyles((theme)=>({
     root: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontFamily: 'nunito',
+        fontFamily: 'M PLUS 1p',
         height: '100vh'
     },
     appbar: {
@@ -20,7 +21,8 @@ const useStyles = makeStyles((theme)=>({
         fontSize: '2rem'
     },
     appbarTitle: {
-        flexGrow: '1'
+        flexGrow: '1',
+        color: '#F2F3F3'
     },
     appbarWrapper: {
         width: '80%',
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme)=>({
         color: '#F2F3F3'
     },
     title: {
-        color: '#fff',
+        color: '#F2F3F3',
         fontSize:'3rem',
         opacity:'1',
         paddingBottom: '20vh'
@@ -42,7 +44,9 @@ const useStyles = makeStyles((theme)=>({
     downIcon: {
         color: '#000',
         fontSize:'4rem',
-
+    },
+    iconContainer:  {
+        paddingTop: '10vh'
     }
 }));
 export default function Header(){
@@ -64,14 +68,19 @@ export default function Header(){
                 </IconButton>
                 </Toolbar>
             </AppBar>
-            <Collapse in={checked} {...(checked ? {timeout:1000}:{})} collapsedHeight={50}>
+            <Collapse in={checked} {...(checked ? {timeout:1000}:{})}
+             collapsedHeight={50}>
             <div className={classes.titleContainer}>
                 <h1 className={classes.title}>
                     Welcome To <br /> Our Family
                 </h1>
-                <IconButton>
+                <Scroll to='services'
+                        smooth={true}
+                        >
+                <IconButton className={classes.iconContainer}>
                     <ArrowDownwardIcon className={classes.downIcon}/>
                 </IconButton>
+                </Scroll>
             </div>
             </Collapse>
         </div>

@@ -7,31 +7,39 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Collapse } from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
-    fontFamily: 'Nunito',
+    fontFamily: 'M PLUS 1p',
     background: 'rgba(0,0,0,0.5)',
     margin: '20px'
     },
   title: {
     fontWeight: 'bold',
     fontSize: '2rem',
-    color: '#fff'
+    color: '#fff',
+    textAlign:'center'
     },
   content: {
-    color: '#fff'
+    color: '#fff',
+    textAlign:'right'
   },
   media: {
 
   },
+  button:{
+      backgroundColor:'rgba(229, 229, 229, 0.8)',
+  }
 });
 
-export default function ImageCard({service}) {
+export default function ImageCard({service, checked}) {
   const classes = useStyles();
 
   return (
+      <Collapse in={checked} {...(checked ? {timeout:1000}:{})}
+      collapsedHeight={50}>
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
@@ -62,10 +70,13 @@ export default function ImageCard({service}) {
         {/* <Button size="small" color="primary">
           Share
         </Button> */}
-        <Button size="small" color="primary">
-          Learn More
+        <Button size="small"
+         color="primary"
+         className={classes.button}>
+          המשך לקרוא
         </Button>
       </CardActions>
     </Card>
+    </Collapse>
   );
 }
