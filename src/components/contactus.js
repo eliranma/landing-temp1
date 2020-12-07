@@ -49,6 +49,14 @@ const ContactUs = () =>{
           [e.target.name]: value
         });
       }
+      const sendEmail = (stateName, stateEmail, stateMessage) => {emailjs.send("nassy-temp1","template_65vgkg9",{
+        message: stateMessage,
+        name: stateName,
+        email: stateEmail,
+        }, 'user_PY0eS9CYsk03dp60ATNj3')
+        .then((response)=>console.log("Succes", response.status, response.text))
+        .then(document.name.reset())
+        .catch((error)=>console.log("FAILED", error))}
 
     //   var whatsappLink = openWhatsapp(state.name, state.phone, state.message);
     //   console.log(whatsappLink);
@@ -95,15 +103,7 @@ const ContactUs = () =>{
         />
     </IconButton>
     <IconButton className={classes.iconContainer}
-  onClick = {emailjs.send("nassy-temp1","template_65vgkg9",{
-    message: state.message,
-    name: state.name,
-    email: state.email,
-    }, 'user_PY0eS9CYsk03dp60ATNj3')
-    .then((response)=>console.log("Succes", response.status, response.text))
-    .then(document.name.reset())
-    .catch((error)=>console.log("FAILED", error))
-    }>
+  onClick = {sendEmail(state.name, state.phone, state.message)}>
         <AlternateEmailIcon className={classes.submit}
         checked = {checked}/>
     </IconButton>
