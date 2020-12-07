@@ -19,13 +19,15 @@ root: {
     backgroundRepeat: 'no-repeat',
     backgroundPosition:'top',
     backgroundSize: 'cover',
-    padding:'50px, 50px',
-
+    padding:'50px, 50px'
 },
 cards:  {
     display:'flex',
     flexDirection: 'row',
-    paddingTop: '10vh'
+    paddingTop: '10vh',
+    [theme.breakpoints.down('md')]:{
+        flexDirection:'column'
+    }
     },
 card: {
     maxHeight: '50vh',

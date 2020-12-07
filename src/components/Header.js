@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme)=>({
         margin: '0, auto'
     },
     colorText:{
-        color: '#F2F3F3'
+        color: 'black'
     },
     title: {
         color: '#F2F3F3',
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme)=>({
 
     },
     downIcon: {
-        color: '#000',
+        color: '#fff',
         fontSize:'4rem',
     },
     iconContainer:  {
@@ -61,7 +61,7 @@ export default function Header(){
             <AppBar className = {classes.appbar}>
                 <Toolbar className = {classes.appbarWrapper}>
                 <h1 className = {classes.appbarTitle}>
-                    Landing<span className={classes.colorText}> Page</span> Template 1
+                    <span className={classes.colorText}>Landing Page</span> Template 1
                     </h1>
                 <IconButton>
                   <SortIcon className = {classes.icon}/>
