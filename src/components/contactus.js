@@ -55,7 +55,6 @@ const ContactUs = () =>{
         email: stateEmail,
         }, 'user_PY0eS9CYsk03dp60ATNj3')
         .then((response)=>console.log("Succes", response.status, response.text))
-        .then(document.name.reset())
         .catch((error)=>console.log("FAILED", error))}
 
     //   var whatsappLink = openWhatsapp(state.name, state.phone, state.message);
@@ -103,7 +102,8 @@ const ContactUs = () =>{
         />
     </IconButton>
     <IconButton className={classes.iconContainer}
-  onClick = {sendEmail(state.name, state.phone, state.message)}>
+  onClick = {sendEmail(state.name, state.phone, state.message)
+            .then(document.name.reset())}>
         <AlternateEmailIcon className={classes.submit}
         checked = {checked}/>
     </IconButton>
