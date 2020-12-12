@@ -52,7 +52,7 @@ const ContactUs = () =>{
               name: stateName,
               email: stateEmail,
               }, 'user_PY0eS9CYsk03dp60ATNj3')
-              .then((response)=>console.log("Succes", response.status, response.text))
+              .then((response)=>alert("Succes", response.status, response.text))
               .catch((error)=>console.log("FAILED", error))};
     const classes = useStyles();
     const checked = useWindowPosition('services');
@@ -103,7 +103,6 @@ const ContactUs = () =>{
     </IconButton>
     <IconButton className={classes.iconContainer}
   onClick = {(() => {sendEmail(state.name, state.phone, state.email, state.message)
-            .then((response)=> alert(response))
             .then(setState({name: '',
             phone: '',
             email: '',
