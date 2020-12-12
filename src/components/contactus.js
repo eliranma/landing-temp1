@@ -102,8 +102,15 @@ const ContactUs = () =>{
         />
     </IconButton>
     <IconButton className={classes.iconContainer}
-  onClick = {(() => {sendEmail(state.name, state.phone, state.message)
-            .then(document.form.reset())})}>
+  onClick = {(() => {sendEmail(state.name, state.phone, state.email, state.message)
+            .then((response)=> alert(response))
+            .then(setState({name: '',
+            phone: '',
+            email: '',
+            message: ''
+            }))
+        }
+   )}>
         <AlternateEmailIcon className={classes.submit}
         checked = {checked}/>
     </IconButton>
