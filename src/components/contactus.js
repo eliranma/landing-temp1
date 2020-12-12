@@ -40,22 +40,22 @@ const ContactUs = () =>{
         email: "",
         message: ""
       })
+          const handleChange = (e) => {
+              const value = e.target.value;
+              setState({
+                ...state,
+                [e.target.name]: value
+              })
+            };
+            const sendEmail = (stateName, stateEmail, stateMessage) => {emailjs.send("nassy-temp1","template_65vgkg9",{
+              message: stateMessage,
+              name: stateName,
+              email: stateEmail,
+              }, 'user_PY0eS9CYsk03dp60ATNj3')
+              .then((response)=>console.log("Succes", response.status, response.text))
+              .catch((error)=>console.log("FAILED", error))};
     const classes = useStyles();
     const checked = useWindowPosition('services');
-    const handleChange = (e) => {
-        const value = e.target.value;
-        setState({
-          ...state,
-          [e.target.name]: value
-        });
-      }
-      const sendEmail = (stateName, stateEmail, stateMessage) => {emailjs.send("nassy-temp1","template_65vgkg9",{
-        message: stateMessage,
-        name: stateName,
-        email: stateEmail,
-        }, 'user_PY0eS9CYsk03dp60ATNj3')
-        .then((response)=>console.log("Succes", response.status, response.text))
-        .catch((error)=>console.log("FAILED", error))}
 
     //   var whatsappLink = openWhatsapp(state.name, state.phone, state.message);
     //   console.log(whatsappLink);
@@ -98,19 +98,19 @@ const ContactUs = () =>{
         <WhatsAppIcon className={classes.submit}
         checked = {checked}
         type='submit'
-        // onClick = {window.open(openWhatsapp(state.name, state.phone, state.message))}
+        onClick = {(()=>{openWhatsapp(state.name, state.phone, state.message)})}
         />
     </IconButton>
     <IconButton className={classes.iconContainer}
-  onClick = {sendEmail(state.name, state.phone, state.message)
-            .then(document.name.reset())}>
+  onClick = {(() => {sendEmail(state.name, state.phone, state.message)
+            .then(document.form.reset())})}>
         <AlternateEmailIcon className={classes.submit}
         checked = {checked}/>
     </IconButton>
     </div>
     </form>
-    )
-}
+    )}
+
 export default ContactUs;
 //User ID
 // user_PY0eS9CYsk03dp60ATNj3
