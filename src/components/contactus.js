@@ -102,12 +102,12 @@ const ContactUs = () =>{
         />
     </IconButton>
     <IconButton className={classes.iconContainer}
-  onClick = {(() => {sendEmail(state.name, state.phone, state.email, state.message)
-    .then(setState({name: '',
+  onClick = {(() => {sendEmail(state.name, state.phone, state.email, state.message);
+    setState({name: '',
             phone: '',
             email: '',
             message: ''
-            }))
+            });
         }
    )}>
         <AlternateEmailIcon className={classes.submit}
